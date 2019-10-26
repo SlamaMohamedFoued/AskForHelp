@@ -1,0 +1,35 @@
+.datePicker {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.inscriptionFormulaire {
+  font-size: 20px;
+  border: 1px solid #7b7f84;
+  border-width: 0.1rem;
+  border-radius: 10px;
+  padding: 20px;
+}
+.date {
+  position: relative;
+}
+.inscription {
+  text-align: center;
+  border: 1px solid #7b7f84;
+  border-width: 0.1rem;
+  border-radius: 10px;
+  padding: 20px;
+}
+.inscriptionForm {
+  margin-top: 120px;
+}

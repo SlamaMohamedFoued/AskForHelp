@@ -1,0 +1,40 @@
+#avis-client {
+  background-color: #f4f4f4;
+}
+.avis-heading {
+  color: rgb(78, 78, 77);
+  font-size: 2rem !important;
+}
+.avisCard {
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 80%;
+}
+.avisDesc {
+  text-align: center;
+  margin: 80px auto 30px;
+  width: 50%;
+  font-family: "Lato", sans-serif !important;
+}
+.userName {
+  margin: 10px 0px;
+}
+.carossel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel {
+  width: 1500px;
+  margin: auto;
+}
+.descriptionTitle {
+  display: flex;
+  justify-items: flex-start;
+  align-items: flex-start;
+}
+.starsRating {
+  margin: 0 10px 0 0;
+}

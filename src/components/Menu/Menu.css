@@ -1,0 +1,13 @@
+.navbarmenu {
+  font-family: "Lato", sans-serif !important;
+  background-color: #fff !important;
+  font-size: 0.9rem;
+  margin-top: -10px !important;
+  margin-bottom: -10px !important;
+}
+.nav-link {
+  color: rgb(78, 77, 74) !important;
+}
+.nav-link {
+  text-decoration: none;
+}

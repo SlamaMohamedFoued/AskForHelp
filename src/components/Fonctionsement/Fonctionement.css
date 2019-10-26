@@ -1,0 +1,16 @@
+.fonctionment-heading {
+  color: rgb(146, 146, 147);
+}
+@media screen and (max-width: 1200px) and (min-width: 990px) {
+  .heading-description,
+  .fonct-para {
+    margin-left: 70px;
+  }
+}
+.heading-description {
+  color: rgb(78, 77, 77);
+  font-size: 1.4rem !important;
+}
+.fonct-para {
+  font-size: 0.96rem !important;
+}

@@ -1,0 +1,22 @@
+.imageProfil {
+  width: 85%;
+}
+.PInfos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.name {
+  margin-top: 15px;
+}
+.profil {
+  display: flex;
+  align-items: center;
+  min-width: 100%;
+}
+.allInfos {
+  min-width: 100% !important;
+}
+.profilContainer {
+  display: flex;
+}

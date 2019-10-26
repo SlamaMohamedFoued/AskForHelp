@@ -1,0 +1,16 @@
+.catDesc {
+  text-align: center;
+  margin: 80px auto 30px;
+  width: 50%;
+  font-family: "Lato", sans-serif !important;
+  color: rgb(78, 78, 77);
+}
+.List-categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sectionCategories {
+  width: 80%;
+  margin: 20px auto;
+}

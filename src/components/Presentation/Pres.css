@@ -1,0 +1,41 @@
+.content {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
+    url("../../images/home.jpg");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 450px;
+  background-attachment: fixed;
+  position: relative;
+}
+.presentation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+.borbtn {
+  text-decoration: none !important;
+  color: rgb(78, 77, 74);
+  padding: 10px 15px;
+  background-color: #fb8c00;
+  border-radius: 3px;
+  transition: ease-in-out 0.3s;
+}
+.borbtn:hover {
+  background: #fff;
+  border: 1px solid #fb8c00;
+  color: rgb(78, 77, 74);
+}
+.title-big {
+  font-size: 2rem;
+}
+.title {
+  font-size: 1.8rem;
+}
+.search {
+  background-color: #fb8c00 !important;
+  color: #fff !important;
+}
