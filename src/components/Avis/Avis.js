@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./Avis.css";
 import { Container, Row, Col, Carousel, Card, Button } from "react-bootstrap";
 import StarRatingComponent from "react-star-rating-component";
+import AvisComp from "../AvisComp/AvisComp";
+import { connect } from "react-redux";
 
 class Avis extends Component {
   constructor() {
@@ -15,7 +17,7 @@ class Avis extends Component {
     this.setState({ rating: nextValue });
   }
   render() {
-    const { rating } = this.state;
+    const { allState } = this.props;
     return (
       <section id="avis-client" className="mx-auto py-5">
         <Container>
@@ -28,74 +30,11 @@ class Avis extends Component {
               </Row>
               <Row>
                 <Carousel controls="false" className="carousel ">
-                  <Carousel.Item className="carossel">
-                    <Card className=" avisCard">
-                      <Card.Body className="searchCardBody">
-                        <div className="user">
-                          <Card.Img
-                            variant="top"
-                            src="https://image.flaticon.com/icons/svg/236/236832.svg"
-                            className="userImage"
-                          />
-                          <Card.Title className="userName">
-                            Foued Slama
-                          </Card.Title>
-                        </div>
-                        <div className="userDescription">
-                          <div className="descriptionTitle">
-                            <StarRatingComponent
-                              className="starsRating"
-                              name="rate1"
-                              starCount={5}
-                              value={rating}
-                              onStarClick={this.onStarClick.bind(this)}
-                            />
-                            <Card.Text>Travail éffectué par : Foued</Card.Text>
-                          </div>
-
-                          <Card.Text>
-                            Tres bonne prestation. Tout a été géré avec
-                            efficacité et en s'adaptant aux spécificités de la
-                            demande. Je recommande.
-                          </Card.Text>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  </Carousel.Item>
-                  <Carousel.Item className="carossel">
-                    <Card className=" avisCard">
-                      <Card.Body className="searchCardBody">
-                        <div className="user">
-                          <Card.Img
-                            variant="top"
-                            src="https://image.flaticon.com/icons/svg/236/236832.svg"
-                            className="userImage"
-                          />
-                          <Card.Title className="userName">
-                            Foued Slama
-                          </Card.Title>
-                        </div>
-                        <div className="userDescription">
-                          <div className="descriptionTitle">
-                            <StarRatingComponent
-                              className="starsRating"
-                              name="rate1"
-                              starCount={5}
-                              value={rating}
-                              onStarClick={this.onStarClick.bind(this)}
-                            />
-                            <Card.Text>Travail éffectué par : Foued</Card.Text>
-                          </div>
-
-                          <Card.Text>
-                            Tres bonne prestation. Tout a été géré avec
-                            efficacité et en s'adaptant aux spécificités de la
-                            demande. Je recommande.
-                          </Card.Text>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  </Carousel.Item>
+                  {allState.avis.map((avis, index) => (
+                    <Carousel.Item className="carossel">
+                      <AvisComp avis={avis} key={index} />
+                    </Carousel.Item>
+                  ))}
                 </Carousel>
               </Row>
             </Col>
@@ -106,4 +45,10 @@ class Avis extends Component {
   }
 }
 
-export default Avis;
+const mapStateToProps = state => {
+  return {
+    allState: state.CategoriesReducer
+  };
+};
+
+export default connect(mapStateToProps)(Avis);

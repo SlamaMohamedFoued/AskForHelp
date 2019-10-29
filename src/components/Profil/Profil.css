@@ -16,7 +16,27 @@
 }
 .allInfos {
   min-width: 100% !important;
+  margin-bottom: -10px;
 }
 .profilContainer {
   display: flex;
+  margin-top: 100px;
+  margin-bottom: 25px;
+}
+.avisComp {
+}
+.avisCardP {
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 96%;
+}
+.icon {
+  width: 55px;
+  text-align: center;
+  color: #fb8c00;
+}
+.compétence {
+  color: #212529;
 }

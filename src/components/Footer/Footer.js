@@ -5,6 +5,7 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <div>
+      <hr />
       <Container className="my-5">
         <Row>
           <Col md="4" className="mb-5">

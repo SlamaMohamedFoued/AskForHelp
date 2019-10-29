@@ -16,6 +16,7 @@ import Presentation from "./components/Presentation/Presentation";
 import Footer from "./components/Footer/Footer";
 import Android from "./components/Android/Android";
 import Accueil from "./components/Accueil/Accueil";
+import listSearchCard from "./components/listSearchCard/listSearchCard";
 
 function App() {
   return (
@@ -25,9 +26,9 @@ function App() {
         <Route exact path="/" component={Accueil} />
         <Route exact path="/inscription" component={Inscription} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/Search/:idCat" component={SearchCard} />
-        <Route exact path="/Profil/:idUser" component={Profil} />
-        <Footer />
+        <Route path="/Search/:catName" component={listSearchCard} />
+        <Route exact path="/Profil" component={Profil} />
+        <Footer className="footer" />
       </div>
     </Router>
   );

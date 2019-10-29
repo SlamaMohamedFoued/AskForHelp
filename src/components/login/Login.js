@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Form, Button, Col, Container } from "react-bootstrap";
+import "./Login.css";
 
 class Login extends Component {
   render() {
     return (
-      <Container>
+      <Container className="login">
         <h2 className="inscription">Connexion</h2>
         <Form className="inscriptionFormulaire">
           <Form.Row>

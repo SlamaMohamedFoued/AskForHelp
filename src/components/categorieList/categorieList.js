@@ -5,7 +5,7 @@ import "./categorieList.css";
 
 class CategorieList extends Component {
   render() {
-    const { categories } = this.props;
+    const { allState } = this.props;
     return (
       <div className="sectionCategories">
         <div>
@@ -15,7 +15,7 @@ class CategorieList extends Component {
           </h2>
         </div>
         <div className="List-categories">
-          {categories.map((categorie, index) => (
+          {allState.categories.map((categorie, index) => (
             <Categorie key={index} categorie={categorie} />
           ))}
         </div>
@@ -26,7 +26,7 @@ class CategorieList extends Component {
 
 const mapStateToProps = state => {
   return {
-    categories: state.CategoriesReducer
+    allState: state.CategoriesReducer
   };
 };
 
