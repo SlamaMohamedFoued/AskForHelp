@@ -27,7 +27,7 @@ function App() {
         <Route exact path="/inscription" component={Inscription} />
         <Route exact path="/login" component={Login} />
         <Route path="/Search/:catName" component={listSearchCard} />
-        <Route exact path="/Profil" component={Profil} />
+        <Route exact path="/Profil/:userId" component={Profil} />
         <Footer className="footer" />
       </div>
     </Router>

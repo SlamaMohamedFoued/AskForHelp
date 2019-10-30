@@ -1,25 +1,28 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./listSearchCard.css";
+import SearchCard from "../SearchCard/SearchCard";
 
 class listSearchCard extends Component {
   render() {
     const { allState } = this.props;
-    const users = allState.jobbers.map((jobber, index) =>
-      Array(jobber.categories[index]).filter(
-        el =>
-          el.catName.toLowerCase() ===
-            this.props.match.params.catName.toLowerCase() && jobber
-      )
+    const users = allState.jobbers.filter(el =>
+      el.categories.includes(this.props.match.params.catName)
     );
+
     console.log(users);
-    // console.log(allState.jobbers[0].categories[0]);
+
     return (
       <div className="searchResult">
         <h2 className="catDesc">
-          Recherche pour la catégorie{" "}
-          <span className="catName">{this.props.match.params.catName}</span>
+          Recherche pour la catégorie
+          <span className="catName"> {this.props.match.params.catName}</span>
         </h2>
+        <div>
+          {users.map((user, index) => (
+            <SearchCard user={user} key={index} />
+          ))}
+        </div>
       </div>
     );
   }

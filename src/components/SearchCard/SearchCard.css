@@ -28,3 +28,8 @@
   width: 100%;
   bottom: 0;
 }
+.linkToProfil,
+.linkToProfil:hover {
+  text-decoration: none;
+  color: white;
+}

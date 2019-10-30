@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Card, Button } from "react-bootstrap";
 import "./SearchCard.css";
 import StarRatingComponent from "react-star-rating-component";
+import { Link } from "react-router-dom";
 
 class SearchCard extends Component {
   constructor() {
@@ -16,6 +17,7 @@ class SearchCard extends Component {
   }
 
   render() {
+    const { user } = this.props;
     const { rating } = this.state;
     return (
       <Card className="searchCard">
@@ -30,32 +32,30 @@ class SearchCard extends Component {
               className="starsRating"
               name="rate1"
               starCount={5}
-              value={rating}
+              value={user.rating}
               onStarClick={this.onStarClick.bind(this)}
             />
           </div>
 
           <div className="userDescription">
             <Card.Title>
-              <i class="fas fa-user"></i> Foued Slama
+              <i class="fas fa-user"></i> {user.name} {user.prenom}
             </Card.Title>
-            <Card.Text>
-              Je suis un bon bricoleur, j'ai effectué plusieurs travaux pour des
-              particuliers depuis 10 ans, qui vont de la pose de tapisserie,
-              peinture, carrelage, parquet, lyno, placo, isolation toiture,
-              électricité, plomberie, pose d'escalier, jardinage, maçonnerie,
-              pose de portail, montage de mur.
-            </Card.Text>
+            <Card.Text>{user.description}</Card.Text>
           </div>
           <div className="contact">
             <Card.Title>
-              <i class="fas fa-map-marked-alt"></i> Sousse
+              <i class="fas fa-map-marked-alt"></i> {user.region}
             </Card.Title>
-            <Button variant="primary">Contacter Jobber</Button>
+            <Button variant="primary" className="linkToProfil">
+              <Link className="linkToProfil" to={`/Profil/${user.id}`}>
+                Afficher Profil
+              </Link>
+            </Button>
           </div>
         </Card.Body>
         <Card.Footer className="text-muted">
-          Inscrit depuis mai 2019
+          Inscrit depuis Le {user.dateInscription}
         </Card.Footer>
       </Card>
     );
