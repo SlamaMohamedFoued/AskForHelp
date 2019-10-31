@@ -2,7 +2,8 @@ const initialState = {
   categories: [
     {
       idCat: 1,
-      catName: "bricolage",
+      catName: "Bricolage",
+      iconLink: "fas fa-hammer fa-2x icon",
       imageLink:
         "https://sf1.viepratique.fr/wp-content/uploads/sites/4/2019/04/bricolage-et-diy-quels-outils-avoir-chez-soi.jpg"
     },
@@ -22,6 +23,7 @@ const initialState = {
     {
       idCat: 4,
       catName: "Netoyage",
+      iconLink: "fas fa-broom fa-2x icon",
       imageLink:
         "https://www.casanet-nettoyage-debarras.com/wp-content/uploads/sites/5019/2015/04/societe-nettoyage.jpg"
     },
@@ -35,6 +37,7 @@ const initialState = {
     {
       idCat: 6,
       catName: "Evénementiel",
+      iconLink: "far fa-calendar-alt fa-2x icon",
       imageLink:
         "http://www.eventparticulier.com/pictures/cms/mariage-carol-patrick/mariage-tournai-salle-de-reception-domaine-de-graux-05-min.jpg"
     }
@@ -42,17 +45,41 @@ const initialState = {
   avis: [
     {
       image: "https://image.flaticon.com/icons/svg/236/236832.svg",
-      userName: "Foued Slama",
+      userId: 1,
+      nom: "slama",
+      prenom: "Foued",
       rating: 5,
-      jobberName: "Amine",
+      jobberId: 1,
       comment:
         "Tres bonne prestation. Tout a été géré avec efficacité et en s'adaptant aux spécificités de la demande. Je recommande."
     },
     {
       image: "https://image.flaticon.com/icons/svg/236/236832.svg",
-      userName: "Haithem Amor",
-      rating: 5,
-      jobberName: "Ala",
+      userId: 2,
+      nom: "Haddar",
+      prenom: "Amine",
+      rating: 4,
+      jobberId: 2,
+      comment:
+        "Tres bonne prestation. Tout a été géré avec efficacité et en s'adaptant aux spécificités de la demande. Je recommande."
+    },
+    {
+      image: "https://image.flaticon.com/icons/svg/236/236832.svg",
+      userId: 3,
+      nom: "ben amor",
+      prenom: "haithem",
+      rating: 3,
+      jobberId: 1,
+      comment:
+        "Tres bonne prestation. Tout a été géré avec efficacité et en s'adaptant aux spécificités de la demande. Je recommande."
+    },
+    {
+      image: "https://image.flaticon.com/icons/svg/236/236832.svg",
+      userId: 4,
+      nom: "Zayeni",
+      prenom: "Amine",
+      rating: 2,
+      jobberId: 2,
       comment:
         "Tres bonne prestation. Tout a été géré avec efficacité et en s'adaptant aux spécificités de la demande. Je recommande."
     }
@@ -74,7 +101,7 @@ const initialState = {
       verified: true,
       description:
         "Je suis un bon bricoleur, j'ai effectué plusieurs travaux pour des particuliers depuis 10 ans, qui vont de la pose de tapisserie, peinture, carrelage, parquet, lyno, placo, isolation toiture, électricité, plomberie, pose d'escalier, jardinage, maçonnerie, pose de portail, montage de mur.",
-      categories: ["Déménagement", "Jardinage", "bricolage"],
+      categories: ["Déménagement", "Jardinage", "Bricolage"],
       rating: 4
     },
     {
@@ -123,6 +150,39 @@ const initialState = {
       email: "Moez@outlook.fr",
       password: 1234,
       dateInscription: "12/1/2015"
+    },
+    {
+      id: 3,
+      userName: "haithem",
+      nom: "ben amor",
+      prenom: "haithem",
+      ville: "Sousse",
+      region: "khezama",
+      dateNaissance: "27/11/1995",
+      genre: "homme",
+      email: "haithem@outlook.fr",
+      password: 1234,
+      dateInscription: "12/1/2015"
+    },
+    {
+      id: 4,
+      userName: "Amine",
+      nom: "Zayeni",
+      prenom: "Amine",
+      ville: "Sousse",
+      region: "khezama",
+      dateNaissance: "27/11/1995",
+      genre: "homme",
+      email: "Amine@outlook.fr",
+      password: 1234,
+      dateInscription: "12/1/2015"
+    }
+  ],
+  messages: [
+    {
+      userId: 1,
+      jobberId: 1,
+      content: "montage d'une étagére ikea à Hammem Sousse"
     }
   ]
 };
