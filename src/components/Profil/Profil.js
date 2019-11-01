@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button, Col, Container } from "react-bootstrap";
+import { Card, Button, Col, Container, Accordion } from "react-bootstrap";
 import StarRatingComponent from "react-star-rating-component";
 import "./Profil.css";
 import AvisComp from "../AvisComp/AvisComp";
@@ -7,6 +7,7 @@ import ProfilCard from "../ProfilCard/ProfilCard";
 import ProfilDescription from "../ProfilDescription/ProfilDescription";
 import { connect } from "react-redux";
 import AvisProfilComp from "../avisProfilComp/avisProfilComp";
+import ListMessages from "../ListMessages/ListMessages";
 
 class Profil extends Component {
   constructor() {
@@ -63,6 +64,18 @@ class Profil extends Component {
               ))}
             </Card>
           </div>
+          <Accordion defaultActiveKey="0">
+            <Card className="accordionCard">
+              <Accordion.Toggle as={Card.Header} eventKey="0">
+                Mes messages
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="0">
+                <Card.Body>
+                  <ListMessages user={user} />
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          </Accordion>
         </Col>
       </Container>
     );

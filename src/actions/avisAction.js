@@ -1,8 +1,8 @@
 import { ADD_AVIS } from "./type";
 
-export const addAvis = newAvis => {
+export const addAvis = payload => {
   return {
     type: ADD_AVIS,
-    newAvis
+    payload
   };
 };

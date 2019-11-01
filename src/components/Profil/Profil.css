@@ -40,3 +40,6 @@
 .compétence {
   color: #212529;
 }
+.accordionCard {
+  min-width: 100% !important;
+}

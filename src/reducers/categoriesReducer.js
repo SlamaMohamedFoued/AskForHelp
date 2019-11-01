@@ -29,7 +29,7 @@ const initialState = {
     },
     {
       idCat: 5,
-      catName: "Informatique && Design",
+      catName: "Informatique & Design",
       iconLink: "fas fa-laptop-code fa-2x icon",
       imageLink:
         "https://www.knslease.com/wp-content/uploads/2018/11/bdh-informatique-201810-old.jpg"

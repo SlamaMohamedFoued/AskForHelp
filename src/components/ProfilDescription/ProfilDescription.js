@@ -2,14 +2,26 @@ import React, { Component } from "react";
 import { Card, Button, Modal, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import { addMessage } from "../../actions/messageActions";
+import { addAvis } from "../../actions/avisAction";
+import StarRatingComponent from "react-star-rating-component";
 
 class ProfilDescription extends Component {
-  state = {
-    show: false,
-    show2: false,
-    message: "",
-    category: ""
-  };
+  constructor() {
+    super();
+
+    this.state = {
+      rating: 0,
+      show: false,
+      show2: false,
+      message: "",
+      category: "",
+      avis: ""
+    };
+  }
+  onStarClick(nextValue, prevValue, name) {
+    this.setState({ rating: nextValue });
+  }
+
   setModalShow = show => {
     this.setState({
       show: show
@@ -26,12 +38,11 @@ class ProfilDescription extends Component {
   };
 
   render() {
-    const { jobber, allState, addMessage } = this.props;
-    const { message, category } = this.state;
+    const { jobber, allState, addMessage, addAvis } = this.props;
+    const { message, category, rating, avis } = this.state;
     const categories = allState.jobbers
       .filter(el => el.id == jobber.id)
       .map(el => el.categories)[0];
-    console.log(this.state);
     return (
       <Card className="allInfos">
         <Card.Header as="h5">Description</Card.Header>
@@ -46,7 +57,7 @@ class ProfilDescription extends Component {
             className="mx-2"
             onClick={() => this.setModalShow2(true)}
           >
-            Donner un avis
+            Donner votre avis
           </Button>
           <Modal
             show={this.state.show}
@@ -99,7 +110,7 @@ class ProfilDescription extends Component {
                     message,
                     category
                   });
-                  this.setModalShow2(false);
+                  this.setModalShow(false);
                 }}
               >
                 Envoyer Message
@@ -115,15 +126,28 @@ class ProfilDescription extends Component {
             centered
           >
             <Modal.Header closeButton>
-              <Modal.Title id="contained-modal-title-vcenter">
-                Message
-              </Modal.Title>
+              <Modal.Title id="contained-modal-title-vcenter">Avis</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <Form>
+                <Form.Group>
+                  <StarRatingComponent
+                    className="starsRating"
+                    name="rating"
+                    starCount={5}
+                    value={rating}
+                    onStarClick={this.onStarClick.bind(this)}
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label>Avis</Form.Label>
-                  <Form.Control as="textarea" rows="3" />
+                  <Form.Control
+                    as="textarea"
+                    rows="3"
+                    name="avis"
+                    onChange={this.handleChange}
+                  />
                   <Form.Text className="text-muted">
                     Donner votre avis.
                   </Form.Text>
@@ -131,7 +155,20 @@ class ProfilDescription extends Component {
               </Form>
             </Modal.Body>
             <Modal.Footer>
-              <Button type="submit">Envoyer </Button>
+              <Button
+                type="submit"
+                onClick={() => {
+                  addAvis({
+                    userId: 1,
+                    jobberId: jobber.id,
+                    rating,
+                    avis
+                  });
+                  this.setModalShow2(false);
+                }}
+              >
+                Poster avis
+              </Button>
               <Button onClick={() => this.setModalShow2(false)}>Annuler</Button>
             </Modal.Footer>
           </Modal>
@@ -159,5 +196,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { addMessage }
+  { addAvis, addMessage }
 )(ProfilDescription);

@@ -3,6 +3,7 @@ import { Form, Button, Row, Col, Container } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./inscription.css";
+import { connect } from "react-redux";
 
 class Inscription extends Component {
   state = {
@@ -24,6 +25,11 @@ class Inscription extends Component {
       "Mahdia",
       "Sfax"
     ];
+    const genres = ["Homme", "Femme"];
+    const etats = ["Professionnel", "Particulier"];
+    const { allState } = this.props;
+    const categories = allState.categories.map(el => el.catName);
+    console.log(categories);
     return (
       <Container className="inscriptionForm">
         <h2 className="inscription">Inscription</h2>
@@ -62,7 +68,7 @@ class Inscription extends Component {
             </Col>
           </Form.Row>
           <Form.Row>
-            <Col className="date">
+            <Col className="date flex">
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Date de naissance :</Form.Label>
                 <br />
@@ -72,26 +78,25 @@ class Inscription extends Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
+              <Form.Group controlId="formBasicEmail" className="genre">
+                <Form.Label>genre :</Form.Label>
+                <Form.Control as="select">
+                  <option>...</option>
+                  {genres.map(el => (
+                    <option>{el}</option>
+                  ))}
+                </Form.Control>
+              </Form.Group>
             </Col>
             <Col>
-              <Form.Group as={Row}>
-                <Form.Label as="legend" column sm={3}>
-                  Vous êtes
-                </Form.Label>
-                <Col sm={9}>
-                  <Form.Check
-                    type="radio"
-                    label="Partticulier"
-                    name="formHorizontalRadios"
-                    id="formHorizontalRadios1"
-                  />
-                  <Form.Check
-                    type="radio"
-                    label="Professionnel"
-                    name="formHorizontalRadios"
-                    id="formHorizontalRadios2"
-                  />
-                </Col>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Vous êtes</Form.Label>
+                <Form.Control as="select">
+                  <option>...</option>
+                  {etats.map(el => (
+                    <option>{el}</option>
+                  ))}
+                </Form.Control>
               </Form.Group>
             </Col>
           </Form.Row>
@@ -113,6 +118,30 @@ class Inscription extends Component {
               </Form.Group>
             </Col>
           </Form.Row>
+          <Form.Row>
+            <Col>
+              <Form.Group>
+                <Form.Label>Categories :</Form.Label>
+                {/* <Form.Control as="select">
+                  <option>...</option>
+                  {categories.map(el => (
+                    <option>{el}</option>
+                  ))}
+                </Form.Control> */}
+                <div key={`custom-inline-checkbox`} className="mb-3">
+                  {categories.map((el, index) => (
+                    <Form.Check
+                      custom
+                      inline
+                      label={el}
+                      type="checkbox"
+                      id={`custom-inline-checkbox-${index}`}
+                    />
+                  ))}
+                </div>
+              </Form.Group>
+            </Col>
+          </Form.Row>
 
           <Button variant="primary" type="submit">
             S'inscrire
@@ -123,4 +152,10 @@ class Inscription extends Component {
   }
 }
 
-export default Inscription;
+const mapStateToProps = state => {
+  return {
+    allState: state.CategoriesReducer
+  };
+};
+
+export default connect(mapStateToProps)(Inscription);

@@ -3,12 +3,12 @@ import CategoriesReducer from "./categoriesReducer";
 import AvisReducer from "./avisReducer";
 import JobbersReducer from "./jobbersReducer";
 import UsersReducer from "./usersReducer";
-import messagesReducer from "./messagesReducer";
+import MessagesReducer from "./messagesReducer";
 
 export default combineReducers({
   CategoriesReducer,
   AvisReducer,
   JobbersReducer,
   UsersReducer,
-  messagesReducer
+  MessagesReducer
 });

@@ -1,24 +1,52 @@
+import { ADD_AVIS } from "../actions/type";
+
 const initialState = [
   {
     image: "https://image.flaticon.com/icons/svg/236/236832.svg",
-    userName: "Foued Slama",
+    userId: 1,
+    nom: "slama",
+    prenom: "Foued",
     rating: 5,
-    jobberName: "Amine",
-    comment:
+    jobberId: 1,
+    avis:
       "Tres bonne prestation. Tout a été géré avec efficacité et en s'adaptant aux spécificités de la demande. Je recommande."
   },
   {
     image: "https://image.flaticon.com/icons/svg/236/236832.svg",
-    userName: "Haithem Amor",
-    rating: 5,
-    jobberName: "Ala",
-    comment:
+    userId: 2,
+    nom: "Haddar",
+    prenom: "Amine",
+    rating: 4,
+    jobberId: 2,
+    avis:
+      "Tres bonne prestation. Tout a été géré avec efficacité et en s'adaptant aux spécificités de la demande. Je recommande."
+  },
+  {
+    image: "https://image.flaticon.com/icons/svg/236/236832.svg",
+    userId: 3,
+    nom: "ben amor",
+    prenom: "haithem",
+    rating: 3,
+    jobberId: 1,
+    avis:
+      "Tres bonne prestation. Tout a été géré avec efficacité et en s'adaptant aux spécificités de la demande. Je recommande."
+  },
+  {
+    image: "https://image.flaticon.com/icons/svg/236/236832.svg",
+    userId: 4,
+    nom: "Zayeni",
+    prenom: "Amine",
+    rating: 2,
+    jobberId: 2,
+    avis:
       "Tres bonne prestation. Tout a été géré avec efficacité et en s'adaptant aux spécificités de la demande. Je recommande."
   }
 ];
 
 const AvisReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ADD_AVIS:
+      return [...state, action.payload];
     default:
       return state;
   }

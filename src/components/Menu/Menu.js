@@ -39,11 +39,11 @@ class Menu extends Component {
             <Navbar.Collapse id="basic-navbar-nav ">
               <Nav className="ml-auto ">
                 <Nav.Link className="nav-link">Inscription</Nav.Link>
-                <Nav.Link className="nav-link" href="#link2">
+                <Nav.Link className="nav-link">
                   <Link to="/login">Connexion</Link>
                 </Nav.Link>
-                <Nav.Link className="nav-link" href="#link3">
-                  <Link to="/inscription">Devenir Jobber </Link>
+                <Nav.Link className="nav-link">
+                  <Link to="/inscription">Devenir Jobber</Link>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
