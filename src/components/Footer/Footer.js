@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./Footer.css";
+import logo from "../../images/logo.png";
 
 export default function Footer() {
   return (
@@ -10,10 +11,11 @@ export default function Footer() {
         <Row>
           <Col md="4" className="mb-5">
             <img
-              src="http://demowpthemes.com/buy2thumbsup/local/images/settings/1501838962.png"
+              src={logo}
               border="0"
               alt="logo"
               className="ml-5"
+              height="50px"
             />
             <ul className="social-list ">
               <li className="social-icon">

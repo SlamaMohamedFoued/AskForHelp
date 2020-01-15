@@ -17,19 +17,22 @@ import Footer from "./components/Footer/Footer";
 import Android from "./components/Android/Android";
 import Accueil from "./components/Accueil/Accueil";
 import listSearchCard from "./components/listSearchCard/listSearchCard";
+import ScrollToTop from "./components/scrollUp/scrollUp";
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Menu />
-        <Route exact path="/" component={Accueil} />
-        <Route exact path="/inscription" component={Inscription} />
-        <Route exact path="/login" component={Login} />
-        <Route path="/Search/:catName" component={listSearchCard} />
-        <Route exact path="/Profil/:userId" component={Profil} />
-        <Footer className="footer" />
-      </div>
+      <ScrollToTop>
+        <div className="App">
+          <Menu />
+          <Route exact path="/" component={Accueil} />
+          <Route exact path="/inscription" component={Inscription} />
+          <Route exact path="/login" component={Login} />
+          <Route path="/Search/:catName" component={listSearchCard} />
+          <Route exact path="/Profil/:userId" component={Profil} />
+          <Footer className="footer" />
+        </div>
+      </ScrollToTop>
     </Router>
   );
 }

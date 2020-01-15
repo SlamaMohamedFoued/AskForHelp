@@ -39,8 +39,7 @@ class AvisProfilComp extends Component {
                 value={avis.rating}
               />
             </div>
-
-            <Card.Text>{avis.comment}</Card.Text>
+            <Card.Text>{avis.avis}</Card.Text>
           </div>
         </Card.Body>
       </Card>

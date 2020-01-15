@@ -1,4 +1,7 @@
-import { ADD_AVIS } from "../actions/type";
+import { ADD_AVIS, GET_AVIS } from "../actions/type";
+// const express = require('express')
+// const router = express.Router()
+// const Avis = require('../')
 
 const initialState = [
   {
@@ -47,6 +50,8 @@ const AvisReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_AVIS:
       return [...state, action.payload];
+    case GET_AVIS:
+      return action.payload;
     default:
       return state;
   }

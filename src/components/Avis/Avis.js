@@ -10,7 +10,7 @@ class Avis extends Component {
     super();
 
     this.state = {
-      rating: 1
+      rating: 4
     };
   }
   onStarClick(nextValue, prevValue, name) {

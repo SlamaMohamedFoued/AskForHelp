@@ -23,12 +23,12 @@ class Profil extends Component {
 
   render() {
     const { rating } = this.state;
-    const { allState } = this.props;
+    const { allState, avis } = this.props;
     const user = allState.jobbers.filter(
       user => String(user.id) === this.props.match.params.userId
     )[0];
 
-    const avis = allState.avis.filter(
+    const allAvis = avis.filter(
       avis => String(avis.jobberId) === this.props.match.params.userId
     );
     const x = allState.categories.filter(el =>
@@ -59,7 +59,7 @@ class Profil extends Component {
           <div>
             <Card className="allInfos">
               <Card.Header as="h5">Avis</Card.Header>
-              {avis.map((avis, index) => (
+              {allAvis.map((avis, index) => (
                 <AvisProfilComp avis={avis} key={index} />
               ))}
             </Card>
@@ -84,7 +84,8 @@ class Profil extends Component {
 
 const mapsStateToProps = state => {
   return {
-    allState: state.CategoriesReducer
+    allState: state.CategoriesReducer,
+    avis: state.AvisReducer
   };
 };
 

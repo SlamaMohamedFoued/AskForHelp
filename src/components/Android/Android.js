@@ -15,9 +15,8 @@ class Android extends Component {
                 <div className="my-4 pt-5 android-description">
                   <h2>Soyez plus productif n'importe quand et n'importe où</h2>
                   <p>
-                    Envoyez des demandes de projets, obtenez des devis et
-                    embauchez le bon professionnel avec l'application gratuite
-                    Thumbtack pour iPhone.
+                    Envoyez des demandes de boulots, et obtenez des réponses de
+                    la part de nos jobbers de n'importe quel endroit.
                   </p>
                 </div>
                 <div className="android-button my-5">

@@ -2,22 +2,18 @@ import React, { Component } from "react";
 import { Card, Button, Modal, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import { addMessage } from "../../actions/messageActions";
-import { addAvis } from "../../actions/avisAction";
+import { addAvis, addNewAvis } from "../../actions/avisAction";
 import StarRatingComponent from "react-star-rating-component";
 
 class ProfilDescription extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      rating: 0,
-      show: false,
-      show2: false,
-      message: "",
-      category: "",
-      avis: ""
-    };
-  }
+  state = {
+    rating: 0,
+    show: false,
+    show2: false,
+    message: "",
+    category: "",
+    avis: ""
+  };
   onStarClick(nextValue, prevValue, name) {
     this.setState({ rating: nextValue });
   }
@@ -38,8 +34,8 @@ class ProfilDescription extends Component {
   };
 
   render() {
-    const { jobber, allState, addMessage, addAvis } = this.props;
-    const { message, category, rating, avis } = this.state;
+    const { jobber, allState, addMessage, addAvis, addNewAvis } = this.props;
+    const { message, category, rating } = this.state;
     const categories = allState.jobbers
       .filter(el => el.id == jobber.id)
       .map(el => el.categories)[0];
@@ -107,6 +103,8 @@ class ProfilDescription extends Component {
                   addMessage({
                     userId: 1,
                     jobberId: jobber.id,
+                    nom: "Haddar",
+                    prenom: "Amine",
                     message,
                     category
                   });
@@ -158,11 +156,13 @@ class ProfilDescription extends Component {
               <Button
                 type="submit"
                 onClick={() => {
-                  addAvis({
+                  addNewAvis({
                     userId: 1,
+                    nom: "Haddar",
+                    prenom: "Amine",
                     jobberId: jobber.id,
-                    rating,
-                    avis
+                    rating: this.state.rating,
+                    avis: this.state.avis
                   });
                   this.setModalShow2(false);
                 }}
@@ -196,5 +196,5 @@ const mapStateToProps = state => {
 };
 export default connect(
   mapStateToProps,
-  { addAvis, addMessage }
+  { addAvis, addMessage, addNewAvis }
 )(ProfilDescription);

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Menu.css";
 import { Nav, Navbar, Container, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import logo from "../../images/logo.png";
 
 class Menu extends Component {
   constructor(props) {
@@ -28,17 +29,12 @@ class Menu extends Component {
           <Container>
             <Link to="/">
               <Navbar.Brand>
-                <img
-                  src="http://demowpthemes.com/buy2thumbsup/local/images/settings/1501838962.png"
-                  border="0"
-                  alt="logo"
-                />
+                <img src={logo} border="0" alt="logo" height="50px" />
               </Navbar.Brand>
             </Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav ">
               <Nav className="ml-auto ">
-                <Nav.Link className="nav-link">Inscription</Nav.Link>
                 <Nav.Link className="nav-link">
                   <Link to="/login">Connexion</Link>
                 </Nav.Link>
